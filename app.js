@@ -2,6 +2,8 @@
 var sampleData
 window.onload = function () {
 
+    refreshPlots("940")
+
 
     d3.json("./samples.json").then(function (data) {
         sampleData = data
