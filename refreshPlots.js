@@ -112,6 +112,44 @@ function refreshPlots(selected) {
             table.append("td").text("wfreq: " + tableVals.wfreq);
 
 
+        var gaugeData = [
+            {
+                type: "indicator",
+                mode: "gauge+number",
+                value: tableVals.wfreq,
+                title: { text: "Belly Button Washing Frequency" +  "<br>"  +"Scrubs Per Week ", font: { size: 24 } },
+                delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
+                gauge: {
+                    axis: { range: [null, 10], tickwidth: 1, tickcolor: "darkblue" },
+                    bar: { color: "darkblue" },
+                    bgcolor: "white",
+                    borderwidth: 2,
+                    bordercolor: "gray",
+                    steps: [
+                        { range: [0, 1], color: "cyan", text: "0 to 1" },
+                        { range: [1 ,2 ], color: "royalblue" },
+                        { range: [2, 3], color: "cyan" },
+                        { range: [4 ,5 ], color: "royalblue" },
+                        { range: [6, 7], color: "cyan" },
+                        { range: [8 ,9 ], color: "royalblue" },
+                        { range: [9 ,10 ], color: "cyan" },
+
+                    ],
+
+                }
+            }
+        ];
+
+        var gaugeLayout = {
+
+            margin: { t: 25, r: 25, l: 25, b: 25 },
+            paper_bgcolor: "lavender",
+            font: { color: "darkblue", family: "Arial" }
+        };
+
+        Plotly.newPlot('gauge', gaugeData, gaugeLayout);
+
+
 
 
 
