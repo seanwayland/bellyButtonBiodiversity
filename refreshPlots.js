@@ -8,31 +8,36 @@ function refreshPlots(selected) {
         let oneSample = samples.filter(function (e) {
             return e.id === selected
         });
-        let thisIndividualSamples = oneSample[0].otu_ids
-        let individualX = oneSample[0].sample_values
+        console.log(oneSample[0])
+        let xVals = oneSample[0].otu_ids
+        console.log(xVals)
+
+        let yVals = oneSample[0].sample_values
+       console.log(yVals)
+
 
         let yValues = []
 
         for ( let i = 0; i <10; i++){
-            yValues.push(thisIndividualSamples[i])
+            yValues.push(yVals[i])
         }
 
         let xValues = []
 
         for ( let i = 0; i <10; i++){
-            xValues.push(individualX[i])
+          xValues.push("OTU :" + xVals[i])
         }
 
 
 
-    var data = [{
+    var plotData = [{
         type: 'bar',
-        x: xValues,
-        y: yValues,
+        x: yValues,
+        y: xValues,
         orientation: 'h'
     }];
 
-    Plotly.newPlot('bar', data);
+    Plotly.newPlot('bar', plotData);
 
 });
 }
